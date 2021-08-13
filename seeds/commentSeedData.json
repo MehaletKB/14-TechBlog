@@ -1,0 +1,17 @@
+[
+    {
+        "comment_content": "Mission 0: Get a first born",
+        "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "comment_content": "I've been told that it'll happen one day",
+        "user_id": 3,
+        "post_id": 2
+    },
+    {
+        "comment_content": "It all depends on the standards you hold yourself to",
+        "user_id": 1,
+        "post_id": 3
+    }
+]

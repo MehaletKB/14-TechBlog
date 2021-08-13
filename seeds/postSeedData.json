@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Is coding bootcamp for you?",
+        "post_content": "Are you prepared to sacrifice your time, your life and your first born? If yes then go for it!",
+        "user_id": 1
+    },
+    {
+        "title": "Don't get Javascript? You're not alone.",
+        "post_content": "Four months in and I'm still waiting for the proverbial light js heaven to shine upon me, stay tuned.",
+        "user_id": 2
+    },
+    {
+        "title": "How much can a person learn in just a few months",
+        "post_content": "Turns out a person can learn quite under threat of failure. I can do things now that I never thought I could. Cheers to that!",
+        "user_id": 3
+    }
+]
