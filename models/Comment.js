@@ -16,14 +16,14 @@ Comment.init(
                 len: [5]
             }
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: "user",
-                key: "id"
-            }
-        },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: "user",
+        //         key: "id"
+        //     }
+        // },
     },
     {
         sequelize,
