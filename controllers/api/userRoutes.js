@@ -1,36 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 
-router.get("/:id", async (req, res) => {
-    try{
-        const userData = await User.findByPk(req.session.user_id, {
-            attribute: { exclude: ["password"]},
-            include: [{
-                model: Post,
-                attributes: ["id", "title", "post_content"]
-                },
-            {
-                model: Comment,
-                attribute: ["id", "comment_content", "created_at"]
-            }]
-        });
-    
-        if(!userData) {
-            res.status(404).json({message: "No user found"});
-            return;
-        }
-    
-        const user = userData.get({plain: true});
-    
-        res.render("userprofile", {
-            ...user,
-            logged_in: true
-        });
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err)
-    }
-});
 
 router.post("/", async (req, res) => {
     try {
@@ -46,16 +16,19 @@ router.post("/", async (req, res) => {
 
             res.json(userData);
         });
+    } catch(err) {
+        console.log(err);
+        res.json(500).json(err)
     }
 });
 
 router.post("/login", async (req, res) => {
     try {
-        const userData = await User.findOne({ where: {email: req.body.email}});
+        const userData = await User.findOne({ where: {username: req.body.username}});
 
         if(!userData) {
             res.status(400);
-            res.json( {message: "Incorrect email or password, please try again."});
+            res.json( {message: "Incorrect username or password, please try again."});
             return;
         }
 
@@ -81,8 +54,9 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
     if(req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(404).end();
-        })
+        });
+    } else {
+        res.status(404).end();
     }
 });
 

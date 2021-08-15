@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const {User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+
+
 router.get("/", withAuth, (req, res) => {
     try {
         userPostData = await Post.findAll({
@@ -36,6 +38,7 @@ router.get("/", withAuth, (req, res) => {
     }
 });
 
+
 router.get("/edit/:id", withAuth, (req, res) => {
     try {
         const userPostData = await Post.findByPk(req.params.id, {
@@ -67,9 +70,10 @@ router.get("/edit/:id", withAuth, (req, res) => {
     }
 });
 
+
 router.get("/newpost", (req, res) => {
     res.render("newpost")
-})
+});
 
 
 module.exports = router;
